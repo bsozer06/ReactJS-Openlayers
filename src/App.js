@@ -1,23 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import Mapping from './components/Map/Mapping';
+import Layers from './components/Layers/Layers';
+import TileLayers from './components/Layers/TileLayers';
+import Map from './components/Map/index';
+
+//components
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <Mapping>
+        <Layers>
+          <TileLayers source={}></TileLayers>
+        </Layers>
+      </Mapping> */}
+      <Map />
     </div>
   );
 }
