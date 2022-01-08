@@ -5,14 +5,17 @@ import React, { useState, useEffect, useRef } from 'react'
 import "../App.css";
 
 // openlayers
-import 'ol/ol.css';
-import { Map, View } from 'ol';
+import 'ol/css';
 import * as ol from 'ol';
-import TileLayer from 'ol/layer/Tile';
-import OSM from 'ol/source/OSM';
+import Map from 'ol';
+import View  from 'ol';
+import TileLayer from 'ol/layer/tile';
+import OSM from 'ol/source/osm';
+
 import { useMapContext } from '../context/MapContext';
 import Wms from '../services/Wms';
 import Wfs from '../services/Wfs';
+import ControlsWrapper from '../Controls/ControlsWrapper';
 
 
 
@@ -40,6 +43,7 @@ function MapWrapper({ children }) {
         setMap(initialMap);
     }, []);
 
+
     // WMS Options
     const ilSinirOption = {
         url: 'http://localhost:8080/geoserver/Burhan/wms',
@@ -48,13 +52,17 @@ function MapWrapper({ children }) {
         transition: 0,
     };
 
+    // WFS Url
+    const wfsUrl = "http://localhost:8080/geoserver/Burhan/ows?service=WFS&version=1.1.0&request=GetFeature&typeName=Burhan%3ATr_iller&maxFeatures=2&outputFormat=application%2Fjson"
+
 
 
     return (
         <>
             <div ref={mapElement} className="map-container">{children}</div>
             <Wms options={ilSinirOption} />
-            <Wfs />
+            <Wfs url={wfsUrl}/>
+            <ControlsWrapper />
         </>
     )
 }
