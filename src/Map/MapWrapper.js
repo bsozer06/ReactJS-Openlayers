@@ -6,7 +6,7 @@ import "../App.css";
 
 // openlayers
 import 'ol/css';
-import * as ol from 'ol';
+// import * as ol from 'ol';
 import Map from 'ol';
 import View  from 'ol';
 import TileLayer from 'ol/layer/tile';

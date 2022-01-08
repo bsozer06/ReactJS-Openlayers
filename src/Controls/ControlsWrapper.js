@@ -4,12 +4,13 @@ import { useMapContext } from '../context/MapContext'
 import CustomVectorStyles from '../Styles/CustomVectorStyles';
 
 // ol
-import  MousePosition  from "ol/control";
+import  MousePosition  from "ol/control/mouseposition";
 import VectorLayer from 'ol/layer/vector';
 import VectorSource from 'ol/source/vector';
 
+
 // ol-ext
-import Bar from "openlayers-ext/lib/control/Bar"
+import Bar from "ol-ext/control/Bar";
 
 function ControlsWrapper() {
     const {map, setMap} = useMapContext();
@@ -39,7 +40,7 @@ function ControlsWrapper() {
                 toggleOne: true,	// one control active at the same time
                 group: false			// group controls together
             });
-            map.addControl(mainBar);
+            map.controls.push(mainBar);
         }
     }, [])
 
